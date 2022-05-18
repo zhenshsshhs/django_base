@@ -14,6 +14,9 @@ class BookInfo(models.Model):
     # the primary key of id is created automatically
     name = models.CharField(max_length=50)
 
+    def __str__(self):
+        return self.name
+
 class PeopleInfo(models.Model):
     name = models.CharField(max_length=50)
     gender =models.BooleanField()
