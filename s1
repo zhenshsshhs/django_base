@@ -1,0 +1,41 @@
+[33mcommit 01c5ce1773d76285df25430e582a7c52f5590055[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: zheng <352326430@qq.com>
+Date:   Wed May 18 02:58:47 2022 -0700
+
+    route patterns enbed
+
+[33mcommit 526cc5abc6d5b3fcb02e6ea279eedc00dd50bdd0[m
+Author: zheng <352326430@qq.com>
+Date:   Wed May 18 01:43:10 2022 -0700
+
+    add the pattern route of index/
+
+[33mcommit ff8575e4a0833b231c2be4af5a180c192bb77710[m
+Author: zheng <352326430@qq.com>
+Date:   Wed May 18 01:28:09 2022 -0700
+
+    add view
+
+[33mcommit 292ff03fa086001a575cf750e9791d42e0f39017[m
+Author: zheng <352326430@qq.com>
+Date:   Wed May 18 01:16:45 2022 -0700
+
+    add admin view
+
+[33mcommit 38fc109accde577c8cbebf7a1badd315b1b3410f[m
+Author: zheng <352326430@qq.com>
+Date:   Wed May 18 00:05:13 2022 -0700
+
+    define models
+
+[33mcommit 934614672909955c93d8598a854d4ae9b6741ffa[m
+Author: zheng <352326430@qq.com>
+Date:   Tue May 17 23:23:24 2022 -0700
+
+    add in Pycharm
+
+[33mcommit 4a2e5d5a5cef604ec6c772d9c00191a43f626ca9[m
+Author: zheng <352326430@qq.com>
+Date:   Tue May 17 21:58:03 2022 -0700
+
+    create project
