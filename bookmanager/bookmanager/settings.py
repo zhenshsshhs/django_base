@@ -37,8 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # add sub_function
-    'book',                 # the one of way
+    ## add sub_function
+    # 'book',                 # the one of way
     'book.apps.BookConfig'  # other way
 ]
 
