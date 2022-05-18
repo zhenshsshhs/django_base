@@ -16,6 +16,7 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
@@ -25,7 +26,7 @@ SECRET_KEY = 'j)p)c&gf4p%f(nfbs1=1j5!#68g102)%e#tv&exm1&4^9yyahk'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.15.133','127.0.0.1']
+ALLOWED_HOSTS = ['*']  # '*' indicate all of hosts
 
 
 # Application definition
