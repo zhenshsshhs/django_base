@@ -35,3 +35,20 @@ book.save()
 
 
 BookInfo.objects.filter(id=6).update(name='crawler')
+
+
+############## delete data in the database #####################
+"""
+    There are two forms of deletion:
+        1.logical deletion (set the flag of the item of is_delete in database.
+        2.physical deletion (delete the items  in the database directly. 
+    
+    below functions are physical deletion.
+"""
+# the one of physical deletion way
+book = BookInfo.objects.get(id=6)
+book.delete()
+
+# the second of physical deletion way
+BookInfo.objects.get(id = 6).delete()
+BookInfo.objects.filter(id = 5).delete()
