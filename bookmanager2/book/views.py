@@ -26,3 +26,12 @@ BookInfo.objects.create(
     pub_date='2020-01-02',
     readcount=100
 )
+
+############## update data in the database #####################
+
+book = BookInfo.objects.get(id=6)
+book.name = 'operation development'
+book.save()
+
+
+BookInfo.objects.filter(id=6).update(name='crawler')
