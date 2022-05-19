@@ -103,3 +103,39 @@ BookInfo.objects.filter(id__gt=3) #  gt --> greater than
 BookInfo.objects.filter(pub_date__year=1980)
 # 查询1990年1月1日后发表的图书
 BookInfo.objects.filter(pub_date__gt='1999-01-01')
+
+
+""""1.F对象"""
+# 之前的查询都是对象的属性与常量值比较，两个属性怎么比较呢？ 答：使用F对象，被定义在django.db.models中。
+# 语法如下：
+# F(属性名)
+
+# 例：查询阅读量大于等于评论量的图书。
+from django.db.models import F
+BookInfo.objects.filter(readcount__gte=F('commentcount'))
+
+# 可以在F对象上使用算数运算。
+#
+# 例：查询阅读量大于2倍评论量的图书。
+BookInfo.objects.filter(readcount__gte = F('commentcount')*2)
+
+"""2.Q对象"""
+# 多个过滤器逐个调用表示逻辑与关系，同sql语句中where部分的and关键字。
+#  Q(属性名__运算符=值)
+# and or not
+# BookInfo.objects.filter( Q(属性名__运算符=值) & Q(属性名__运算符=值) & Q(属性名__运算符=值) )
+# BookInfo.objects.filter( Q(属性名__运算符=值) | Q(属性名__运算符=值) | Q(属性名__运算符=值) )
+# BookInfo.objects.filter( ~Q(属性名__运算符=值)  )
+
+# 例：查询阅读量大于20，并且编号小于3的图书。
+BookInfo.objects.filter(readcount__gte=20).filter(id__lt=3)
+BookInfo.objects.filter(readcount__gte=20,id__lt=3)
+
+from django.db.models import Q
+BookInfo.objects.filter( Q(readcount__gt=20) & Q(id__lt=3) )
+
+# 例：查询阅读量大于20，或编号小于3的图书，只能使用Q对象实现
+BookInfo.objects.filter(Q(readcount__gte=20)|Q(id__lt=3))
+
+# 例：查询阅读量大于20，或编号 not is3的图书，只能使用Q对象实现
+BookInfo.objects.filter(Q(readcount__gte=20)|~Q(id__lt=3))
