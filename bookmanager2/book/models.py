@@ -15,6 +15,8 @@ class BookInfo(models.Model):
         db_table = 'bookinfo'
 
 class PeopleInfo(models.Model):
+
+    # sorted dictionary using [] or ().
     GENDER_CHOICE = (
         (0,'male'),
         (1,'female')
