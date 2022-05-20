@@ -139,3 +139,55 @@ BookInfo.objects.filter(Q(readcount__gte=20)|Q(id__lt=3))
 
 # 例：查询阅读量大于20，或编号 not is3的图书，只能使用Q对象实现
 BookInfo.objects.filter(Q(readcount__gte=20)|~Q(id__lt=3))
+
+
+
+"""aggregate(聚合函数)"""
+from django.db.models import Max,Min,Sum,Avg,Count
+BookInfo.objects.aggregate(Min('readcount'))
+
+
+"""order by 2. 排序"""
+
+BookInfo.objects.all().order_by('readcount')    #ascent
+BookInfo.objects.all().order_by('-readcount')   # descent
+
+
+
+"""级联查询"""
+
+"""1.关联查询"""
+
+# 查询书籍为1的所有人物信息
+book = BookInfo.objects.get(id=1)
+book.peopleinfo_set.all()
+
+
+# 查询人物为1的书籍信息
+from book.models import PeopleInfo
+people = PeopleInfo.objects.get(id=1)
+people.book.name
+
+
+"""2.关联过滤查询"""
+
+# 由多模型类条件查询一模型类数据:
+#
+# 语法如下：
+#
+# 关联模型类名小写__属性名__条件运算符=值
+#
+#     注意：如果没有"__运算符"部分，表示等于。
+
+
+# 查询图书，要求图书人物为"郭靖"
+BookInfo.objects.filter(peopleinfo__name__exact="郭靖")
+BookInfo.objects.filter(peopleinfo__name="郭靖")
+
+# 查询图书，要求图书中人物的描述包含"八"
+BookInfo.objects.filter(peopleinfo__description__contains="八")
+
+# 查询书名为“天龙八部”的所有人物
+PeopleInfo.objects.filter(book__name='天龙八部')
+# 查询图书阅读量大于30的所有人物
+PeopleInfo.objects.filter(book__readcount__gt=30)
